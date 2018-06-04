@@ -38,7 +38,7 @@ with tf.Session() as sess:
 
     sess.run(tf.global_variables_initializer())
 
-    train_writer = tf.summary.FileWriter('./logs/1/train', sess.graph)
+    train_writer = tf.summary.FileWriter('./logs/LR/train', sess.graph)
     counter = 0
 
     for epoch in range(n_epochs):
