@@ -84,9 +84,11 @@ def main(unused_argv):
   eval_data = mnist.test.images # Returns np.array
   eval_labels = np.asarray(mnist.test.labels, dtype=np.int32)
 
+  #pred_data = 
+  
   # Create the Estimator
   mnist_classifier = tf.estimator.Estimator(
-    model_fn=cnn_model_fn, model_dir="./log/goo/")
+    model_fn=cnn_model_fn, model_dir="./log/goo_gpu_1000_10k/")
 
   # Set up logging for predictions
   tensors_to_log = {"probabilities": "softmax_tensor"}
@@ -97,13 +99,13 @@ def main(unused_argv):
   train_input_fn = tf.estimator.inputs.numpy_input_fn(
     x={"x": train_data},
     y=train_labels,
-    batch_size=100,
+    batch_size=1000,
     num_epochs=None,
     shuffle=True)
     
   mnist_classifier.train(
     input_fn=train_input_fn,
-    steps=20000,
+    steps=10000,
     hooks=[logging_hook])
 
   # Evaluate the model and print results
@@ -115,7 +117,16 @@ def main(unused_argv):
 
   eval_results = mnist_classifier.evaluate(input_fn=eval_input_fn)
   print(eval_results)
+  '''
+  pred_input_fn = tf.estimator.inputs.numpy_input_fn(
+    x={"x":pred_data},
+    shuffle=False
+  )
 
+  mnist_classifier.predict(
+    input_fn=pred_input_fn
+  )
+'''
 
 if __name__ == "__main__":
   tf.app.run()
