@@ -5,13 +5,13 @@ from random import shuffle
 
 def load_data():
 
-    apple_scab = glob("/home/rupak/LeanAgri/leaf-disease-plant-village/plantvillage_deeplearning_paper_dataset/color/Apple___Apple_scab/*.JPG")
+    apple_scab = glob("/home/user/LeanAgri/leaf-disease-plant-village/plantvillage_deeplearning_paper_dataset/color/Apple___Apple_scab/*.JPG")
     label1 = [1 for i in range(len(apple_scab))]
 
-    apple_frogeye_spot = glob("/home/rupak/LeanAgri/leaf-disease-plant-village/plantvillage_deeplearning_paper_dataset/color/Apple_Frogeye_Spot/*.JPG")
+    apple_frogeye_spot = glob("/home/user/LeanAgri/leaf-disease-plant-village/plantvillage_deeplearning_paper_dataset/color/Apple_Frogeye_Spot/*.JPG")
     label2 = [2 for i in range(len(apple_frogeye_spot))]
 
-    apple_healthy = glob("/home/rupak/LeanAgri/leaf-disease-plant-village/plantvillage_deeplearning_paper_dataset/color/Apple___healthy/*.JPG")
+    apple_healthy = glob("/home/user/LeanAgri/leaf-disease-plant-village/plantvillage_deeplearning_paper_dataset/color/Apple___healthy/*.JPG")
     label3 = [3 for i in range(len(apple_healthy))]
 
     filenames = apple_scab + apple_frogeye_spot + apple_healthy
